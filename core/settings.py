@@ -13,7 +13,7 @@ SECRET_KEY = "django-insecure-mr&n+5qq=(nec24onwoxzf*+731=kb)r1w^-^vtagk#pbf-n$_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -27,17 +27,18 @@ BASE_APPS = [
     "django.contrib.staticfiles",
 ]
 
-LOCAL_APPS = ["apps.modulo", "apps.sensor", "apps.valor"]
-
-THIRD_APPS = [
-    "rest_framework",
-    "corsheaders",
+LOCAL_APPS = [
+    "apps.modulo", 
+    "apps.sensor", 
+    "apps.valor",
+    "apps.home"    
 ]
+
+THIRD_APPS = []
 
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -52,7 +53,7 @@ ROOT_URLCONF = "core.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": ['templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -74,7 +75,7 @@ WSGI_APPLICATION = "core.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": 'sensor',
+        "NAME": 'proyecto_sensor',
         "USER": 'root',
         "PASSWORD": '',
         "HOST": 'localhost',
@@ -119,13 +120,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-CORS_ALLOW_ALL_ORIGINS = True
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-# Configure Django App for Heroku.
-import django_heroku
-django_heroku.settings(locals())
