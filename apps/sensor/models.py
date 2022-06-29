@@ -2,7 +2,11 @@ from django.db import models
 
 
 class SensorModel(models.Model):
-    sensor_id = models.CharField(max_length=4, primary_key=True, blank=True)
+    sensor_id = models.CharField(
+        max_length=4, 
+        primary_key=True, 
+        blank=True
+    )
 
     class Meta:
         verbose_name = "sensor"
