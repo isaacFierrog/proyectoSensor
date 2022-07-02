@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    {% if sensor %}
+        Eliminar sensor {{ sensor.sensor_id }}
+    {% else %}
+        No existe el sensor
+    {% endif %}
+{% endblock %}
+
+{% block contenido %}
+    {% if sensor %}
+        <h1>¿Desea eliminar el sensor {{ sensor.sensor_id }}?</h1>
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" value="ELIMINAR">
+            <a href="{% url 'sensor:listar_sensor' %}">
+                <button>CANELAR</button>
+            </a>
+        </form>
+    {% else %}
+        <h1>No existe el sensor</h1>
+    {% endif %}
+
+{% endblock %}
