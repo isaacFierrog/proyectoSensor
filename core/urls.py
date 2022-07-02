@@ -6,6 +6,6 @@ from apps.home.views import home
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', home, name='home'),
-    path('sensores/', include(('apps.sensor.urls', 'sensor'))),
-    path('modulos/', include(('apps.modulo.urls', 'modulo')))
+    path('sensor/', include(('apps.sensor.urls', 'sensor'))),
+    path('modulo/', include(('apps.modulo.urls', 'modulo')))
 ]
