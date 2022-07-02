@@ -7,13 +7,32 @@
 {% block contenido %}
     {% if sensores %}
         <h1>Pagina de sensores</h1>
-        <ul>
-            {% for sensor in sensores %}
-                <li>{{ sensor.sensor_id }}</li>
-            {% endfor %}
-        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Valores</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sensor in sensores %}
+                    <tr>
+                        <td>{{ sensor.sensor_id }}</td>
+                        <td>
+                            <a href="#">Ver</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sensor:eliminar_sensor' sensor.sensor_id %}">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     {% else %}
         <h1>No hay sensores creados</h1>
     {% endif %}
-
+    <a href="{% url 'sensor:crear_sensor' %}">
+        <h3>Crear sensor</h3>
+    </a>
 {% endblock %}
