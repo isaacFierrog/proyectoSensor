@@ -7,6 +7,15 @@ class SensorModel(models.Model):
         primary_key=True, 
         blank=True
     )
+    estado = models.BooleanField(
+        'Estado del sensor',
+        default=True
+    )
+    fecha_creacion = models.DateField(
+        'Fecha de creacion',
+        auto_now_add=True,
+        auto_now=False
+    )
 
     class Meta:
         verbose_name = "sensor"
