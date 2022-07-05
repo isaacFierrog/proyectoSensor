@@ -74,7 +74,7 @@ WSGI_APPLICATION = "core.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
+        "ENGINE": "django.db.postgresql_psycopg2",
         "NAME": 'proyecto_sensor',
         "USER": 'root',
         "PASSWORD": '',
